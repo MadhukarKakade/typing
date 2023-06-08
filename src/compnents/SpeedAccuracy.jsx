@@ -21,7 +21,7 @@ const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
         setCurrentSpeed(speed);
       }
     }
-    if (typing.length &&typing.length-Number(wrongCount)>0 ) {
+    if (typing.length && typing.length-(Number(wrongCount))>0 ) {
       const accur = Math.floor(
         ((typing.length - Number(wrongCount)) / typing.length) * 100
       );
