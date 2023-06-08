@@ -8,7 +8,7 @@ const text ="fast typists forget about the keyboard and do not even realize thei
   // "dd kk dk dk kd kd ddd kkd ddk dkk kkdd ddkk dddd kkkk ddkk kkdd kdd kddd dk kk";
 const content = [...String(text)];
 
-const Content = ({ typing = [], setWrongCount, wrongCount,setComplete }) => {
+const Content = ({ typing = [], setWrongCount, wrongCount,setComplete ,setTyping}) => {
   console.log({ typing });
   if (typing.length && typing.length <= content.length) {
     if (content[typing.length - 1] == typing[typing.length - 1]) {
@@ -19,6 +19,7 @@ const Content = ({ typing = [], setWrongCount, wrongCount,setComplete }) => {
       let mySound = new Audio(wrongSound);
 
       mySound.play();
+      setTyping((typing)=>typing.slice(0, -1))
     }
   }
   useEffect(() => {

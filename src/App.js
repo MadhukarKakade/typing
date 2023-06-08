@@ -37,6 +37,7 @@ function App() {
           setWrongCount={setWrongCount}
           wrongCount={wrongCount}
           setComplete={setComplete}
+          setTyping={setTyping}
         />
       )}
       <div id="bottom">
