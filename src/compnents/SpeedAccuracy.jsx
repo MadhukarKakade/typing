@@ -9,21 +9,24 @@ const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
     console.log(wrongCount);
     const currentTime = new Date();
     console.log(startTime);
+    const check = typing.length - Number(wrongCount);
     const totalTime = (currentTime - startTime) / (1000 * 60);
     console.log(totalTime);
-    const speed = Math.round(
-      (typing.length - Number(wrongCount)) / 5 / totalTime
-    );
-    console.log(speed);
+
+    if (check) {
+      const speed = Math.round(check / 5 / totalTime);
+
+      console.log(speed);
+      if (speed > 0) {
+        setCurrentSpeed(speed);
+      }
+    }
     if (typing.length) {
       const accur = Math.floor(
         ((typing.length - Number(wrongCount)) / typing.length) * 100
       );
       setAccuracy(accur);
       console.log(typing.length, accur, wrongCount);
-    }
-    if (speed > 0) {
-      setCurrentSpeed(speed);
     }
   };
 
