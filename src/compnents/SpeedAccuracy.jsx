@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Accuracy.css"
+
+
 const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
   const [currentSpeed, setCurrentSpeed] = useState(null);
   const [accuracy, setAccuracy] = useState(100);
 
+
+
   const speedCalculation = () => {
-    const currentTime = new Date().getTime();
+    console.log(wrongCount)
+    const currentTime =  new Date();
 console.log(startTime)
-    const totalTime = (currentTime - startTime) / (1000 * 60);
+    const totalTime =(currentTime - startTime) / (1000 * 60);
     console.log(totalTime)
-    const speed =Math.ceil( (typing.length / 5 )/ totalTime);
+    const speed =Math.round (( typing.length-Number(wrongCount) /totalTime )/ 5);
     console.log(speed)
-    const accur = Math.floor(((typing.length-wrongCount) / typing.length) * 100);
-    setCurrentSpeed(speed);
+    if(typing.length){
+    const accur = Math.floor(((typing.length-Number(wrongCount)) / (typing.length)) * 100);
     setAccuracy(accur);
+    console.log(typing.length,accur,wrongCount)
+    }
+   if(speed>0){
+    setCurrentSpeed(speed);
+  }
+   
   };
 
-  useEffect(() => {
-    const interval = setInterval(speedCalculation, 10000);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  useEffect(() => {
+   
+   speedCalculation()
+
+  
+  }, [typing]);
 
   return (
-    <div>
-      {/* {currentSpeed && ( */}
-        <div id="sideParameter">
+   
+      currentSpeed?<div id="sideParameter">
           <div id="speed">
             <h4>Speed</h4>{" "}
             <p>
@@ -40,9 +50,9 @@ console.log(startTime)
               <span>{accuracy}%</span>
             </p>
           </div>
-        </div>
-   {/* )}  */}
-    </div>
+        </div>:<div></div>
+    
+   
   );
 };
 

@@ -16,9 +16,10 @@ function App() {
 // }
 const[startTime,setStartTime]=useState(null)
 const [wrongCount,setWrongCount]=useState(0)
+console.log(wrongCount)
 const [typing,setTyping]=useState([])
 if(startTime==null&&typing.length==0){
-  const time=new Date().getTime()
+  const time= new Date()
   setStartTime(time)
 }
 

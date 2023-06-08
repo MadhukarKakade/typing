@@ -23,7 +23,7 @@ const Content = ({ typing = [], setWrongCount, wrongCount }) => {
   }
   useEffect(() => {
     if (content[typing.length - 1] !== typing[typing.length - 1]) {
-      setWrongCount(wrongCount + 1);
+      setWrongCount(Number(wrongCount) + 1);
     }
   }, [typing]);
 
