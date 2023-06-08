@@ -1,58 +1,53 @@
 import React, { useEffect, useState } from "react";
-import "../styles/Accuracy.css"
-
+import "../styles/Accuracy.css";
 
 const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
   const [currentSpeed, setCurrentSpeed] = useState(null);
   const [accuracy, setAccuracy] = useState(100);
 
-
-
   const speedCalculation = () => {
-    console.log(wrongCount)
-    const currentTime =  new Date();
-console.log(startTime)
-    const totalTime =(currentTime - startTime) / (1000 * 60);
-    console.log(totalTime)
-    const speed =Math.round ( (typing.length-Number(wrongCount)) / (totalTime*5));
-    console.log(speed)
-    if(typing.length){
-    const accur = Math.floor(((typing.length-Number(wrongCount)) / (typing.length)) * 100);
-    setAccuracy(accur);
-    console.log(typing.length,accur,wrongCount)
+    console.log(wrongCount);
+    const currentTime = new Date();
+    console.log(startTime);
+    const totalTime = (currentTime - startTime) / (1000 * 60);
+    console.log(totalTime);
+    const speed = Math.round(
+      (typing.length - Number(wrongCount)) / 5 / totalTime
+    );
+    console.log(speed);
+    if (typing.length) {
+      const accur = Math.floor(
+        ((typing.length - Number(wrongCount)) / typing.length) * 100
+      );
+      setAccuracy(accur);
+      console.log(typing.length, accur, wrongCount);
     }
-   if(speed>0){
-    setCurrentSpeed(speed);
-  }
-   
+    if (speed > 0) {
+      setCurrentSpeed(speed);
+    }
   };
 
-
   useEffect(() => {
-   
-   speedCalculation()
-
-  
+    speedCalculation();
   }, [typing]);
 
-  return (
-   
-      currentSpeed?<div id="sideParameter">
-          <div id="speed">
-            <h4>Speed</h4>{" "}
-            <p>
-              <span>{currentSpeed}</span>wpm
-            </p>
-          </div>
-          <div id="accuracy">
-            <h4>Accuracy</h4>{" "}
-            <p>
-              <span>{accuracy}%</span>
-            </p>
-          </div>
-        </div>:<div></div>
-    
-   
+  return currentSpeed ? (
+    <div id="sideParameter">
+      <div id="speed">
+        <h4>Speed</h4>{" "}
+        <p>
+          <span>{currentSpeed}</span>wpm
+        </p>
+      </div>
+      <div id="accuracy">
+        <h4>Accuracy</h4>{" "}
+        <p>
+          <span>{accuracy}%</span>
+        </p>
+      </div>
+    </div>
+  ) : (
+    <div></div>
   );
 };
 

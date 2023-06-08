@@ -16,6 +16,7 @@ function App() {
 // }
 const[startTime,setStartTime]=useState(null)
 const [wrongCount,setWrongCount]=useState(0)
+const [complete,setComplete]=useState(false)
 console.log(wrongCount)
 const [typing,setTyping]=useState([])
 if(startTime==null&&typing.length==0){
@@ -25,11 +26,13 @@ if(startTime==null&&typing.length==0){
 
   return (
     <div className="App">
-     <Content typing={typing} setWrongCount={setWrongCount} wrongCount={wrongCount}/>
+{    !complete&& <Content typing={typing} setWrongCount={setWrongCount} wrongCount={wrongCount} setComplete={setComplete}/>}
         <div id='bottom'>
-       <Keyboard setTyping={setTyping}/>
+       { !complete && <Keyboard setTyping={setTyping}/>}
        <SpeedAccuracy wrongCount={wrongCount} typing={typing} startTime={startTime}  />
        </div>
+       { complete && <div class="bottom_button"><button type="button" disabled>prev</button><button onClick={()=>setComplete(false)}>retry</button ><button type="button" disabled>Next</button></div>}
+       
     </div>
   );
 }

@@ -1,7 +1,7 @@
 #sideParameter{
     display: flex;
     flex-direction: column;
-  
+  margin-top: 40px;
     justify-content: center;
     align-content: center;
     gap: 50px;

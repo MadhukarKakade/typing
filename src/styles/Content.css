@@ -15,7 +15,7 @@
 }
 .word{
     display: flex;
-   gap:5px;
+   gap:2px;
     align-items: center;
     justify-content: center;
    margin-top: 10px;
@@ -24,9 +24,10 @@
    
    border-radius: 5px;
         padding: 2px;
-  min-width: 25px;
+  min-width: 20px;
  border:1px solid whitesmoke;
    height: 100%;
    text-align: center;
+   padding-bottom: 4px;
   
 }
