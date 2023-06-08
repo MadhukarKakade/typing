@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  background-color: whitesmoke;
+  min-height: 100vh;
+  width: 100%;
+  
+}
+#bottom{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+ 
+  align-content: center;
+}
+
+

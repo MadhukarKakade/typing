@@ -1,0 +1,32 @@
+#content{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 1008px;
+    width: 100%;
+    /* border: 1px solid brown; */
+    font-size: 30px;
+    padding: 10px;
+    color: grey;
+    gap:"10px"
+}
+.speed,.word{
+    height: 40px;
+}
+.word{
+    display: flex;
+   gap:5px;
+    align-items: center;
+    justify-content: center;
+   margin-top: 10px;
+}
+.word>p{
+   
+   border-radius: 5px;
+        padding: 2px;
+  min-width: 25px;
+ border:1px solid whitesmoke;
+   height: 100%;
+   text-align: center;
+  
+}
