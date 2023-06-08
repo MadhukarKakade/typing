@@ -9,7 +9,7 @@ const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
     console.log(wrongCount);
     const currentTime = new Date();
     console.log(startTime);
-    const check = typing.length - Number(wrongCount);
+    const check = typing.length;
     const totalTime = (currentTime - startTime) / (1000 * 60);
     console.log(totalTime);
 
