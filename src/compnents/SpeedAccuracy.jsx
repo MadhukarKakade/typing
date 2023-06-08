@@ -14,7 +14,7 @@ const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
 console.log(startTime)
     const totalTime =(currentTime - startTime) / (1000 * 60);
     console.log(totalTime)
-    const speed =Math.round (( typing.length-Number(wrongCount) /totalTime )/ 5);
+    const speed =Math.round ( (typing.length-Number(wrongCount)) / (totalTime*5));
     console.log(speed)
     if(typing.length){
     const accur = Math.floor(((typing.length-Number(wrongCount)) / (typing.length)) * 100);
