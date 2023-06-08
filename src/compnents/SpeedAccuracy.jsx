@@ -32,6 +32,10 @@ const SpeedAccuracy = ({ wrongCount, typing, startTime }) => {
 
   useEffect(() => {
     speedCalculation();
+    if(typing.length==0){
+      setAccuracy(100)
+      setCurrentSpeed(null)
+    }
   }, [typing]);
 
   return currentSpeed ? (
