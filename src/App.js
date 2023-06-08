@@ -48,12 +48,13 @@ function App() {
           startTime={startTime}
         />
       </div>
+      {/* <input type="text" id="inputField" autoFocus aria-disabled /> */}
       {complete && (
         <div class="bottom_button">
           <button type="button" disabled>
             prev
           </button>
-          {/* <button onClick={handleClick}>retry</button> */}
+          <button onClick={handleClick}>retry</button>
           <button type="button" disabled>
             Next
           </button>
